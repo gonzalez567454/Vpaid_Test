@@ -1,17 +1,22 @@
 // player.js
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Video.js player
     const player = videojs('my-video', {
         controls: true,
-        autoplay: true,
+        autoplay: false,
         preload: 'auto',
         width: 640,
-        height: 360
+        height: 360,
+        fluid: true
     });
 
-    // Add VAST support
+    // Initialize the VAST Client plugin
     player.vastClient({
         adTagUrl: 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml',
-        // additional VAST configuration
+        // Enable ad support
+        debug: true,
+        timeout: 5000,
+        // Optional additional configurations
     });
 
     // Event listeners for player controls
