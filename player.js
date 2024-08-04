@@ -19,20 +19,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // Create play/pause button
   const playPauseBtn = document.createElement('button');
   playPauseBtn.id = 'play-pause';
-  playPauseBtn.textContent = 'Play';
+  playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';  // Play icon
   controls.appendChild(playPauseBtn);
 
-  // Create volume toggle button
-  const volumeToggleBtn = document.createElement('button');
-  volumeToggleBtn.id = 'volume-toggle';
-  volumeToggleBtn.textContent = 'Mute';
-  controls.appendChild(volumeToggleBtn);
+  // Create volume control container
+  const volumeControl = document.createElement('div');
+  volumeControl.id = 'volume-control';
 
-  // Create close button
-  const closeBtn = document.createElement('button');
-  closeBtn.id = 'close';
-  closeBtn.textContent = 'Close';
-  controls.appendChild(closeBtn);
+  // Create volume icon button
+  const volumeIcon = document.createElement('button');
+  volumeIcon.id = 'volume-icon';
+  volumeIcon.innerHTML = '<i class="fa fa-volume-up"></i>';  // Volume icon
+  volumeControl.appendChild(volumeIcon);
 
   // Create volume slider
   const volumeSlider = document.createElement('div');
@@ -44,10 +42,17 @@ document.addEventListener('DOMContentLoaded', function () {
   volumeInput.max = '100';
   volumeInput.value = '100';
   volumeSlider.appendChild(volumeInput);
-  controls.appendChild(volumeSlider);
+  volumeControl.appendChild(volumeSlider);
+  controls.appendChild(volumeControl);
 
   // Append the container to the video-container section
   document.querySelector('.video-container').appendChild(container);
+
+  // Create and append the close button outside the player
+  const closeBtn = document.createElement('button');
+  closeBtn.id = 'close';
+  closeBtn.innerHTML = '<i class="fa fa-times"></i>';  // Close icon
+  document.body.appendChild(closeBtn);
 
   let isMuted = false;
 
@@ -70,26 +75,25 @@ document.addEventListener('DOMContentLoaded', function () {
   playPauseBtn.addEventListener('click', function () {
     if (video.paused) {
       video.play();
-      playPauseBtn.textContent = 'Pause';
+      playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>';  // Pause icon
     } else {
       video.pause();
-      playPauseBtn.textContent = 'Play';
+      playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';  // Play icon
     }
   });
 
-  // Volume toggle button functionality
-  volumeToggleBtn.addEventListener('click', function () {
+  // Volume icon and slider functionality
+  volumeIcon.addEventListener('click', function () {
     if (isMuted) {
       video.muted = false;
-      volumeToggleBtn.textContent = 'Mute';
+      volumeIcon.innerHTML = '<i class="fa fa-volume-up"></i>';  // Volume icon
     } else {
       video.muted = true;
-      volumeToggleBtn.textContent = 'Unmute';
+      volumeIcon.innerHTML = '<i class="fa fa-volume-off"></i>';  // Mute icon
     }
     isMuted = !isMuted;
   });
 
-  // Volume slider functionality
   volumeInput.addEventListener('input', function () {
     video.volume = volumeInput.value / 100;
   });
@@ -97,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Close button functionality
   closeBtn.addEventListener('click', function () {
     container.style.display = 'none';
+    closeBtn.style.display = 'none'; // Hide close button when player is closed
   });
 
   // Load VAST ad on page load
