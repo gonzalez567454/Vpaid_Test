@@ -9,7 +9,7 @@
           <Linear>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://example.com/video.mp4]]>
+                <![CDATA[https://video.vidoomy.com/pro/ftp-pro/vast/10N28_1716318457_vast_video.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
