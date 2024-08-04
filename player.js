@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const placeholder = document.getElementById('video-placeholder');
+  let isMuted = true; // Start muted
+
   // Create player container
   const container = document.createElement('div');
   container.id = 'player-container';
@@ -8,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
   video.id = 'ad-video';
   video.width = 640;
   video.height = 360;
-  video.controls = false;  // Custom controls
+  video.controls = false; // Custom controls
+  video.autoplay = true; // Autoplay the video
+  video.muted = isMuted; // Start muted
   container.appendChild(video);
 
   // Create controls container
@@ -19,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Create play/pause button
   const playPauseBtn = document.createElement('button');
   playPauseBtn.id = 'play-pause';
-  playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';  // Play icon
+  playPauseBtn.innerHTML = '<i class="fa fa-play"></i>'; // Play icon
   controls.appendChild(playPauseBtn);
 
   // Create volume control container
@@ -29,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Create volume icon button
   const volumeIcon = document.createElement('button');
   volumeIcon.id = 'volume-icon';
-  volumeIcon.innerHTML = '<i class="fa fa-volume-up"></i>';  // Volume icon
+  volumeIcon.innerHTML = '<i class="fa fa-volume-up"></i>'; // Volume icon
   volumeControl.appendChild(volumeIcon);
 
   // Create volume slider
@@ -45,16 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
   volumeControl.appendChild(volumeSlider);
   controls.appendChild(volumeControl);
 
-  // Append the container to the video-container section
-  document.querySelector('.video-container').appendChild(container);
+  // Append the container to the placeholder
+  placeholder.appendChild(container);
 
   // Create and append the close button outside the player
   const closeBtn = document.createElement('button');
   closeBtn.id = 'close';
-  closeBtn.innerHTML = '<i class="fa fa-times"></i>';  // Close icon
+  closeBtn.innerHTML = '<i class="fa fa-times"></i>'; // Close icon
   document.body.appendChild(closeBtn);
-
-  let isMuted = false;
 
   // Load VAST ad
   function loadVastAd() {
@@ -62,48 +65,52 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(vastUrl)
       .then(response => response.text())
       .then(vastXml => {
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(vastXml, 'application/xml');
-        const mediaFile = xmlDoc.querySelector('MediaFile');
-        const mediaUrl = mediaFile ? mediaFile.textContent : '';
-        video.src = mediaUrl;
+        // Load the VAST ad into the video player
+        video.src = 'path-to-your-video-file.mp4'; // Replace with actual video file path or URL
       })
       .catch(error => console.error('Error loading VAST ad:', error));
   }
 
-  // Play/Pause button functionality
-  playPauseBtn.addEventListener('click', function () {
+  loadVastAd();
+
+  // Toggle play/pause
+  playPauseBtn.addEventListener('click', () => {
     if (video.paused) {
       video.play();
-      playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>';  // Pause icon
+      playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>'; // Pause icon
     } else {
       video.pause();
-      playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';  // Play icon
+      playPauseBtn.innerHTML = '<i class="fa fa-play"></i>'; // Play icon
     }
   });
 
-  // Volume icon and slider functionality
-  volumeIcon.addEventListener('click', function () {
-    if (isMuted) {
-      video.muted = false;
-      volumeIcon.innerHTML = '<i class="fa fa-volume-up"></i>';  // Volume icon
-    } else {
-      video.muted = true;
-      volumeIcon.innerHTML = '<i class="fa fa-volume-off"></i>';  // Mute icon
-    }
+  // Toggle volume
+  volumeIcon.addEventListener('click', () => {
     isMuted = !isMuted;
+    video.muted = isMuted;
+    volumeIcon.innerHTML = isMuted ? '<i class="fa fa-volume-off"></i>' : '<i class="fa fa-volume-up"></i>';
   });
 
-  volumeInput.addEventListener('input', function () {
+  // Adjust volume
+  volumeInput.addEventListener('input', () => {
     video.volume = volumeInput.value / 100;
   });
 
   // Close button functionality
-  closeBtn.addEventListener('click', function () {
-    container.style.display = 'none';
-    closeBtn.style.display = 'none'; // Hide close button when player is closed
+  closeBtn.addEventListener('click', () => {
+    placeholder.style.opacity = 0;
+    placeholder.style.transform = 'scale(0)';
   });
 
-  // Load VAST ad on page load
-  loadVastAd();
+  // Reveal video player on scroll
+  function revealPlayer() {
+    const rect = placeholder.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      placeholder.style.opacity = 1;
+      placeholder.style.transform = 'scale(1)';
+    }
+  }
+
+  window.addEventListener('scroll', revealPlayer);
+  revealPlayer(); // Initial check
 });
