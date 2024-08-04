@@ -1,61 +1,81 @@
-/* Ensure paragraphs are long enough */
-p {
-    font-size: 1.3em; /* 30% bigger than normal */
-    min-height: 400px; /* At least 400px tall */
-    line-height: 1.5; /* Improve readability */
-    margin: 0 0 20px 0; /* Add spacing between paragraphs */
-    text-align: justify; /* Justify text */
+/* Basic reset and global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-/* Header image styling */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+/* Header styling */
 header img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
-/* Player container */
+/* Main content styling */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main p {
+    font-size: 1.3rem; /* 30% larger text */
+    margin-bottom: 20px;
+    text-align: justify;
+    height: 400px; /* Minimum height for paragraphs */
+}
+
+/* Player styling */
 #player-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
     width: 640px;
     height: 360px;
-    display: none; /* Initially hidden */
 }
 
-/* Aside widget styling */
+/* Aside styling */
 aside {
-    float: right;
+    position: fixed;
+    top: 20px;
+    right: 20px;
     width: 300px;
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .aside-elements {
-    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .aside-elements img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
-/* Clear floats */
-main::after {
-    content: "";
-    display: table;
-    clear: both;
+.aside-elements p {
+    margin-top: 10px;
 }
 
-/* Responsive adjustment */
-@media (max-width: 768px) {
-    #player-container {
-        width: 100%;
-        height: auto;
-    }
-
-    aside {
-        width: 100%;
-        float: none;
-        margin: 20px 0;
-    }
+/* Additional styling */
+html, body {
+    font-size: 16px; /* Base font size */
 }
