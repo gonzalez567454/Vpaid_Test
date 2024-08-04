@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+    <title>VPAID Video Player</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Video.js CSS -->
     <link href="https://vjs.zencdn.net/7.20.2/video-js.css" rel="stylesheet">
@@ -48,11 +48,26 @@
         </aside>
     </main>
     
-    <!-- Video.js Library -->
-    <script src="https://vjs.zencdn.net/7.20.2/video.min.js"></script>
-    <!-- Video.js Contrib Ads Plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@7.2.0/dist/videojs-contrib-ads.min.js"></script>
-    <!-- Player Initialization Script -->
-    <script src="player.js"></script>
+    <!-- Video.js Library (Deferred) -->
+    <script src="https://vjs.zencdn.net/7.20.2/video.min.js" defer></script>
+    <!-- Video.js Contrib Ads Plugin (Deferred) -->
+    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@7.2.0/dist/videojs-contrib-ads.min.js" defer></script>
+    <!-- Player Initialization Script (Deferred and Dynamically Loaded) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to load the player.js script
+            function loadScript(url, callback) {
+                var script = document.createElement('script');
+                script.src = url;
+                script.onload = callback;
+                document.head.appendChild(script);
+            }
+
+            // Load player.js once Video.js and plugins are loaded
+            loadScript('player.js', function () {
+                console.log('Player.js script loaded.');
+            });
+        });
+    </script>
 </body>
 </html>
