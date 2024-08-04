@@ -1,107 +1,57 @@
-/* Global Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background-color: #f4f4f4;
 }
 
 nav {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+  background: #333;
+  color: #fff;
 }
 
-.navElements img {
+nav .navElements img {
   height: 30px;
 }
 
 .cover {
-  background: url('https://vidoomy.com/demos_new/plantillas_demos_v2/img/cover.jpg') no-repeat center center;
-  background-size: cover;
-  color: #fff;
+  background: #f2f2f2;
+  padding: 20px;
   text-align: center;
-  padding: 100px 20px;
 }
 
-.cover h1 {
-  margin: 0;
-  font-size: 36px;
-}
-
-main {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+#containerDesktop {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-article {
-  background-color: #fff;
+  justify-content: space-between;
   padding: 20px;
-  border-radius: 8px;
 }
 
-.articleSubtitle {
-  font-size: 18px;
-  margin: 10px 0;
+.main-content {
+  flex: 2;
 }
 
-.video img {
-  width: 100%;
-  border-radius: 8px;
+.sidebar {
+  flex: 1;
+  padding-left: 20px;
 }
 
-.sub-headers {
-  font-size: 24px;
-  margin: 20px 0;
-}
-
-.articleText {
-  font-size: 16px;
-  color: #333;
-}
-
-.rrss img {
-  margin: 0 10px;
-}
-
-.news {
-  margin-top: 20px;
+.news, .aside-sections {
+  margin-bottom: 20px;
 }
 
 .newsImg {
-  width: 100px;
-  height: auto;
-  margin: 0 5px;
-}
-
-aside {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.asideElements img {
   width: 100%;
-  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .footerSubcont {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 10px;
-  background-color: #333;
+  background: #333;
   color: #fff;
 }
 
@@ -109,13 +59,8 @@ aside {
   height: 30px;
 }
 
-.footerElements.disclaimer {
-  font-size: 14px;
-}
-
-/* Video Player Styles */
 #player-container {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   right: 10px;
   width: 640px;
@@ -126,7 +71,13 @@ aside {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  z-index: 10;
+  z-index: 1000; /* Ensure player is on top */
+}
+
+#video-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 #player-controls {
