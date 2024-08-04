@@ -1,66 +1,61 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const videoPlaceholder = document.getElementById('video-placeholder');
+document.addEventListener('DOMContentLoaded', function () {
   const playerContainer = document.getElementById('player-container');
   const playButton = document.getElementById('play-button');
   const volumeButton = document.getElementById('volume-button');
   const volumeSlider = document.getElementById('volume-slider');
   const closeButton = document.getElementById('close-button');
 
-  let video = document.createElement('video');
-  video.setAttribute('width', '640');
-  video.setAttribute('height', '360');
-  video.setAttribute('controls', 'true');
-  video.setAttribute('autoplay', 'true');
-  video.setAttribute('muted', 'true');
+  let isPlaying = false;
+  let isMuted = false;
 
-  // Create player
-  const source = document.createElement('source');
-  source.setAttribute('src', 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml');
-  source.setAttribute('type', 'application/xml');
-  video.appendChild(source);
-  videoPlaceholder.appendChild(video);
+  // Function to load VPAID ad
+  function loadVPAID() {
+    const adUrl = 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', adUrl, true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        // Handle VPAID XML response here
+        console.log('VPAID ad loaded');
+      }
+    };
+    xhr.send();
+  }
 
-  // Play/Pause button functionality
-  playButton.addEventListener('click', () => {
-    if (video.paused) {
-      video.play();
-      playButton.innerHTML = '<i class="fas fa-pause"></i>';
-    } else {
-      video.pause();
-      playButton.innerHTML = '<i class="fas fa-play"></i>';
-    }
+  // Initialize VPAID ad
+  loadVPAID();
+
+  // Play/Pause button
+  playButton.addEventListener('click', function () {
+    isPlaying = !isPlaying;
+    playButton.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
+    // Handle play/pause functionality
   });
 
-  // Volume button functionality
-  volumeButton.addEventListener('click', () => {
-    volumeSlider.style.display = (volumeSlider.style.display === 'none' || !volumeSlider.style.display) ? 'block' : 'none';
+  // Volume button
+  volumeButton.addEventListener('click', function () {
+    isMuted = !isMuted;
+    volumeButton.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+    volumeSlider.style.display = isMuted ? 'none' : 'block';
+    // Handle mute/unmute functionality
   });
 
-  volumeSlider.addEventListener('input', (e) => {
-    video.volume = e.target.value / 100;
-  });
-
-  // Close button functionality
-  closeButton.addEventListener('click', () => {
+  // Close button
+  closeButton.addEventListener('click', function () {
     playerContainer.style.display = 'none';
   });
 
-  // Ensure the volume slider and close button are positioned correctly
-  volumeButton.style.position = 'absolute';
-  volumeButton.style.bottom = '10px';
-  volumeButton.style.right = '10px';
-
-  closeButton.style.position = 'absolute';
-  closeButton.style.top = '-20px';
-  closeButton.style.right = '10px';
-
-  // Scroll behavior for player visibility
-  window.addEventListener('scroll', () => {
-    const rect = playerContainer.getBoundingClientRect();
-    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-      playerContainer.style.display = 'block';
-    } else {
-      playerContainer.style.display = 'none';
-    }
+  // Show volume slider on hover
+  volumeButton.addEventListener('mouseover', function () {
+    volumeSlider.style.display = 'block';
+  });
+  volumeSlider.addEventListener('mouseover', function () {
+    volumeSlider.style.display = 'block';
+  });
+  volumeSlider.addEventListener('mouseout', function () {
+    volumeSlider.style.display = 'none';
+  });
+  volumeButton.addEventListener('mouseout', function () {
+    volumeSlider.style.display = 'none';
   });
 });
