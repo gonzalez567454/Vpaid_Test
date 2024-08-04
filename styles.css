@@ -23,11 +23,17 @@ header img {
 /* Main content styling */
 main {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
+    padding-top: 20px;
 }
 
-main p {
+/* Content area styling */
+.content {
+    flex: 1;
+    max-width: 70%;
+}
+
+.content p {
     font-size: 1.3rem; /* 30% larger text */
     margin-bottom: 20px;
     text-align: justify;
@@ -36,8 +42,9 @@ main p {
 
 /* Player styling */
 #player-container {
+    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -46,15 +53,30 @@ video {
     height: 360px;
 }
 
+#controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+#volume-slider {
+    position: absolute;
+    bottom: 50px;
+    display: none;
+}
+
+#volume-slider input[type="range"] {
+    width: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Aside styling */
 aside {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 25%;
+    padding-top: 20px;
 }
 
 .aside-elements {
@@ -62,6 +84,7 @@ aside {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
+    margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -73,6 +96,7 @@ aside {
 
 .aside-elements p {
     margin-top: 10px;
+    font-size: 0.9rem; /* Smaller text for news items */
 }
 
 /* Additional styling */
