@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to load VAST ad
     function loadVAST() {
-        var vastURL = 'vpaid_1.xml'; // URL to your VAST XML
+        var vastURL = 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml'; // Full URL to your VAST XML
         var adsOptions = {
             url: vastURL
         };
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         player.ads(); // Initialize ads plugin
 
         // Load VAST ad
-        player.ima(adsOptions);
+        player.ima(adsOptions); // Ensure 'ima' is the correct method for your VAST plugin
     }
 
     // Load VAST ad when Video.js is ready
