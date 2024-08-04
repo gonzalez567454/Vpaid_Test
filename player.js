@@ -1,37 +1,29 @@
 // player.js
 document.addEventListener('DOMContentLoaded', function () {
-    const playerContainer = document.getElementById('player-container');
-    const playButton = document.getElementById('play-button');
-    const volumeButton = document.getElementById('volume-button');
-    const closeButton = document.getElementById('close-button');
-    const videoPlaceholder = document.getElementById('video-placeholder');
-    
-    let isPlaying = false;
-    const xmlUrl = 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml'; // XML URL
-
-    // Function to initialize VPAID ad
-    function initVPAID() {
-        // Simulate loading of VPAID XML
-        videoPlaceholder.textContent = 'Loading VPAID ad from: ' + xmlUrl;
-        // Actual implementation for loading and playing the VPAID ad should be added here
-    }
-
-    initVPAID();
-
-    // Play/Pause button functionality
-    playButton.addEventListener('click', function () {
-        isPlaying = !isPlaying;
-        playButton.textContent = isPlaying ? 'Pause' : 'Play';
-        // Add code to control video play/pause
+    const player = videojs('my-video', {
+        controls: true,
+        autoplay: true,
+        preload: 'auto',
+        width: 640,
+        height: 360
     });
 
-    // Volume button functionality
-    volumeButton.addEventListener('click', function () {
-        // Add code to control volume
+    // Add VAST support
+    player.vastClient({
+        adTagUrl: 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml',
+        // additional VAST configuration
     });
 
-    // Close button functionality
-    closeButton.addEventListener('click', function () {
-        playerContainer.style.display = 'none';
+    // Event listeners for player controls
+    player.on('play', function () {
+        console.log('Video is playing');
+    });
+
+    player.on('pause', function () {
+        console.log('Video is paused');
+    });
+
+    player.on('ended', function () {
+        console.log('Video has ended');
     });
 });
