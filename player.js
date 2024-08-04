@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var volumeButton = document.getElementById('volume');
     var volumeSlider = document.getElementById('volume-slider');
     var volumeRange = document.getElementById('volume-range');
-    
+
     // Toggle play/pause
     playPauseButton.addEventListener('click', function() {
         if (video.paused) {
@@ -30,9 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
         video.volume = volumeRange.value;
     });
 
-    // Load VAST ad
+    // Load VAST ad with CORS proxy
     function loadVAST() {
-        var vastURL = 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml';
+        var rawGitHubURL = 'https://raw.githubusercontent.com/gonzalez567454/Vpaid_Test/main/vpaid_1.xml';
+        var corsProxy = 'https://cors-anywhere.herokuapp.com/';
+        var vastURL = corsProxy + rawGitHubURL;
         
         fetch(vastURL)
             .then(response => response.text())
