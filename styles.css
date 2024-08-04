@@ -24,42 +24,10 @@ nav .navElements img {
 }
 
 #containerDesktop {
-  display: flex;
-  justify-content: space-between;
   padding: 20px;
 }
 
-.main-content {
-  flex: 2;
-}
-
-.sidebar {
-  flex: 1;
-  padding-left: 20px;
-}
-
-.news, .aside-sections {
-  margin-bottom: 20px;
-}
-
-.newsImg {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.footerSubcont {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  background: #333;
-  color: #fff;
-}
-
-.footerElements img {
-  height: 30px;
-}
-
-#player-container {
+.video {
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -80,17 +48,7 @@ nav .navElements img {
   position: relative;
 }
 
-#player-controls {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-#play-button, #volume-button {
+#play-button, #volume-button, #close-button {
   background: transparent;
   border: none;
   color: #fff;
