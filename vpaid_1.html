@@ -3,71 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPAID Video Player</title>
+    <title>Test Page</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Video.js CSS -->
-    <link href="https://vjs.zencdn.net/7.20.2/video-js.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img src="https://via.placeholder.com/1200x400?text=Header+Image" alt="Landscape Header">
+        <img src="https://source.unsplash.com/random/1600x900" alt="Header Image" style="width: 100%; height: auto;">
     </header>
-
+    
     <main>
-        <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel velit nec ipsum posuere ultricies...</p>
-            <p>Suspendisse potenti. Proin pharetra vehicula est, et pretium nunc fringilla vel...</p>
-            <p>Donec convallis augue eu purus volutpat, nec tristique sem pretium...</p>
-            
-            <!-- Video Player -->
-            <div class="video-player">
-                <video id="my-video" class="video-js vjs-default-skin" controls preload="auto">
-                    <source src="" type="video/mp4">
-                </video>
-            </div>
-            
-            <p>Integer vestibulum urna ac lorem rhoncus...</p>
-            <p>Praesent efficitur tortor et ligula vehicula...</p>
-            <p>Phasellus eget tortor ac justo gravida pharetra...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+
+        <div id="player-container">
+            <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
+                <source src="path/to/video.mp4" type="video/mp4">
+                <!-- VAST ad will be loaded here -->
+            </video>
         </div>
-        
-        <aside class="news-widget">
-            <h2>Recent News</h2>
-            <div class="news-item">
-                <img src="https://via.placeholder.com/150x100?text=News+1" alt="News 1">
-                <p>News item 1 description...</p>
-            </div>
-            <div class="news-item">
-                <img src="https://via.placeholder.com/150x100?text=News+2" alt="News 2">
-                <p>News item 2 description...</p>
-            </div>
-            <div class="news-item">
-                <img src="https://via.placeholder.com/150x100?text=News+3" alt="News 3">
-                <p>News item 3 description...</p>
-            </div>
-        </aside>
+
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
     </main>
     
-    <!-- Video.js Library (Deferred) -->
-    <script src="https://vjs.zencdn.net/7.20.2/video.min.js" defer></script>
-    <!-- Video.js Contrib Ads Plugin (Deferred) -->
-    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@7.2.0/dist/videojs-contrib-ads.min.js" defer></script>
-    <!-- Player Initialization Script (Deferred and Dynamically Loaded) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Function to load the player.js script
-            function loadScript(url, callback) {
-                var script = document.createElement('script');
-                script.src = url;
-                script.onload = callback;
-                document.head.appendChild(script);
-            }
+    <aside>
+        <div class="aside-elements">
+            <img src="https://source.unsplash.com/random/300x200" alt="News Image 1">
+            <p>Recent news item 1</p>
+        </div>
+        <div class="aside-elements">
+            <img src="https://source.unsplash.com/random/300x200" alt="News Image 2">
+            <p>Recent news item 2</p>
+        </div>
+    </aside>
 
-            // Load player.js once Video.js and plugins are loaded
-            loadScript('player.js', function () {
-                console.log('Player.js script loaded.');
-            });
-        });
-    </script>
+    <script src="https://vjs.zencdn.net/7.20.2/video.min.js" async></script>
+    <script src="player.js" async></script>
 </body>
 </html>
