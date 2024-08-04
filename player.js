@@ -1,53 +1,75 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var playerElement = document.getElementById('player-container');
-    var player = videojs('my-video');
+    var video = document.getElementById('my-video');
+    var playPauseButton = document.getElementById('play-pause');
+    var volumeButton = document.getElementById('volume');
+    var volumeSlider = document.getElementById('volume-slider');
+    var volumeRange = document.getElementById('volume-range');
+    
+    // Toggle play/pause
+    playPauseButton.addEventListener('click', function() {
+        if (video.paused) {
+            video.play();
+            playPauseButton.textContent = 'Pause';
+        } else {
+            video.pause();
+            playPauseButton.textContent = 'Play';
+        }
+    });
 
-    // Function to load VAST ad
+    // Toggle volume slider
+    volumeButton.addEventListener('click', function() {
+        if (volumeSlider.style.display === 'block') {
+            volumeSlider.style.display = 'none';
+        } else {
+            volumeSlider.style.display = 'block';
+        }
+    });
+
+    // Change volume
+    volumeRange.addEventListener('input', function() {
+        video.volume = volumeRange.value;
+    });
+
+    // Load VAST ad
     function loadVAST() {
-        var vastURL = 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml'; // Full URL to your VAST XML
-        var adsOptions = {
-            url: vastURL
-        };
-
-        player.ads(); // Initialize ads plugin
-
-        // Load VAST ad
-        player.ima(adsOptions); // Ensure 'ima' is the correct method for your VAST plugin
+        var vastURL = 'https://gonzalez567454.github.io/Vpaid_Test/vpaid_1.xml';
+        
+        fetch(vastURL)
+            .then(response => response.text())
+            .then(data => {
+                // Example: Parse VAST and set up ad
+                // For simplicity, we're not parsing VAST here
+                console.log('VAST data:', data);
+            })
+            .catch(error => {
+                console.error('Error loading VAST:', error);
+            });
     }
 
     // Load VAST ad when Video.js is ready
-    player.ready(function() {
+    video.addEventListener('loadedmetadata', function() {
         loadVAST();
     });
 
-    // Function to check visibility
+    // Handle visibility
     function checkVisibility() {
-        var rect = playerElement.getBoundingClientRect();
-        var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-        var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+        var rect = video.getBoundingClientRect();
+        var isVisible = (rect.top < window.innerHeight && rect.bottom >= 0);
         
-        var heightVisible = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0));
-        var widthVisible = Math.max(0, Math.min(rect.right, windowWidth) - Math.max(rect.left, 0));
-
-        var percentageVisible = (widthVisible * heightVisible) / (playerElement.offsetWidth * playerElement.offsetHeight);
-
-        if (percentageVisible > 0.5) {
-            playerElement.style.display = 'block'; // Show player
-            if (player.paused()) {
-                player.play(); // Resume playing if it's paused
+        if (isVisible) {
+            if (video.paused) {
+                video.play();
             }
         } else {
-            playerElement.style.display = 'none'; // Hide player
-            if (!player.paused()) {
-                player.pause(); // Pause playing if it's not paused
+            if (!video.paused) {
+                video.pause();
             }
         }
     }
 
-    // Check visibility on scroll and resize
     window.addEventListener('scroll', checkVisibility);
     window.addEventListener('resize', checkVisibility);
 
-    // Initial visibility check
+    // Initial check
     checkVisibility();
 });
