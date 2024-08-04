@@ -9,10 +9,11 @@ body {
 
 /* Header Styles */
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: #2c3e50;
+  color: #ecf0f1;
   padding: 20px;
   text-align: center;
+  position: relative;
 }
 
 .header-content {
@@ -23,22 +24,25 @@ header {
 }
 
 .logo {
-  width: 100px;
+  width: 150px;
   height: auto;
 }
 
 header h1 {
   margin: 0;
+  font-size: 24px;
 }
 
 /* Main Content Styles */
 main {
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Video Container */
 .video-container {
   position: relative;
-  max-width: 100%;
   width: 640px;
   height: 360px;
   margin: 0 auto;
@@ -64,25 +68,21 @@ main {
 
 /* Footer Styles */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #2c3e50;
+  color: #ecf0f1;
   padding: 10px;
   text-align: center;
   position: fixed;
   width: 100%;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
 }
 
 .footer-logo {
-  width: 80px;
+  width: 120px;
   height: auto;
 }
 
-/* Player styling */
+/* Player Styling */
 #player-container {
   position: relative;
   width: 640px;
