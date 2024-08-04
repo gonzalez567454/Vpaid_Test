@@ -40,17 +40,6 @@ main {
   margin: 0 auto;
 }
 
-/* Video Container */
-.video-container {
-  position: relative;
-  width: 640px;
-  height: 360px;
-  margin: 0 auto;
-  background-color: #000;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
 /* Content Section */
 .content {
   margin-top: 20px;
@@ -64,6 +53,20 @@ main {
   margin-bottom: 1em;
   line-height: 1.6;
   color: #555;
+}
+
+/* Placeholder for Video Player */
+#video-placeholder {
+  position: relative;
+  width: 640px;
+  height: 360px;
+  margin: 20px auto;
+  background: #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0; /* Hidden initially */
+  transform: scale(0); /* Scale down initially */
+  transition: opacity 0.5s, transform 0.5s;
 }
 
 /* Footer Styles */
@@ -84,14 +87,17 @@ footer {
 
 /* Player Styling */
 #player-container {
-  position: relative;
-  width: 640px;
-  height: 360px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 #player-controls {
@@ -166,3 +172,4 @@ button:hover {
 #close:hover {
   background: rgba(0, 0, 0, 0.9);
 }
+
