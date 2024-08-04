@@ -21,6 +21,11 @@ main {
     padding-right: 20px;
 }
 
+.content p {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
 .news-widget {
     flex: 1;
     background-color: #f4f4f4;
@@ -31,6 +36,7 @@ main {
 
 .news-widget h2 {
     margin-top: 0;
+    text-align: center;
 }
 
 .news-item {
