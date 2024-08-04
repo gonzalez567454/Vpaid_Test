@@ -7,173 +7,167 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Header Styles */
-header {
-  background-color: #2c3e50;
-  color: #ecf0f1;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-}
-
-.header-content {
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
 }
 
-.logo {
-  width: 150px;
-  height: auto;
+.navElements img {
+  height: 30px;
 }
 
-header h1 {
+.cover {
+  background: url('https://vidoomy.com/demos_new/plantillas_demos_v2/img/cover.jpg') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.cover h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 36px;
 }
 
-/* Main Content Styles */
 main {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* Content Section */
-.content {
-  margin-top: 20px;
+article {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.content h2 {
+.articleSubtitle {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.video img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.sub-headers {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.articleText {
+  font-size: 16px;
   color: #333;
 }
 
-.content p {
-  margin-bottom: 1em;
-  line-height: 1.6;
-  color: #555;
+.rrss img {
+  margin: 0 10px;
 }
 
-/* Placeholder for Video Player */
-#video-placeholder {
-  position: relative;
-  width: 640px;
-  height: 360px;
-  margin: 20px auto;
-  background: #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  opacity: 0; /* Hidden initially */
-  transform: scale(0); /* Scale down initially */
-  transition: opacity 0.5s, transform 0.5s;
+.news {
+  margin-top: 20px;
 }
 
-/* Footer Styles */
-footer {
-  background-color: #2c3e50;
-  color: #ecf0f1;
-  padding: 10px;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
-.footer-logo {
-  width: 120px;
+.newsImg {
+  width: 100px;
   height: auto;
+  margin: 0 5px;
 }
 
-/* Player Styling */
+aside {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.asideElements img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.footerSubcont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.footerElements img {
+  height: 30px;
+}
+
+.footerElements.disclaimer {
+  font-size: 14px;
+}
+
+/* Video Player Styles */
 #player-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 10px;
+  right: 10px;
+  width: 640px;
+  height: 360px;
   background: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
   z-index: 10;
 }
 
 #player-controls {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 0;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  color: white;
+  padding: 10px;
 }
 
-button {
-  background: rgba(0, 0, 0, 0.7);
+#play-button, #volume-button {
+  background: transparent;
   border: none;
-  color: white;
-  padding: 5px;
+  color: #fff;
   cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-/* Volume Control */
-#volume-control {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-}
-
-#volume-icon {
-  background: rgba(0, 0, 0, 0.7);
-  border: none;
-  padding: 5px;
+  font-size: 24px;
 }
 
 #volume-slider {
   display: none;
   position: absolute;
-  bottom: 30px;
-  right: 0;
+  bottom: 40px;
+  right: 10px;
+  width: 80px;
   background: rgba(0, 0, 0, 0.7);
-  padding: 5px;
   border-radius: 5px;
+  padding: 5px;
 }
 
 #volume-slider input {
+  width: 100%;
   background: gray;
 }
 
-#volume-control:hover #volume-slider,
-#volume-slider:hover {
-  display: block;
-}
-
-#volume-slider input {
-  vertical-align: middle;
-}
-
-/* Close Button Styles */
-#close {
+#close-button {
   position: absolute;
   top: -20px;
-  right: -20px;
-  background: rgba(0, 0, 0, 0.7);
-  border: none;
-  color: white;
-  padding: 10px;
+  right: 0;
   font-size: 24px;
+  color: #fff;
   cursor: pointer;
-}
-
-#close:hover {
-  background: rgba(0, 0, 0, 0.9);
 }
