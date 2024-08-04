@@ -84,11 +84,9 @@ footer {
 
 /* Player styling */
 #player-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 640px;
+  height: 360px;
   background: black;
   display: flex;
   flex-direction: column;
@@ -101,6 +99,7 @@ footer {
   bottom: 10px;
   left: 10px;
   display: flex;
+  align-items: center;
   gap: 10px;
   color: white;
 }
@@ -109,19 +108,61 @@ button {
   background: rgba(0, 0, 0, 0.7);
   border: none;
   color: white;
-  padding: 5px 10px;
+  padding: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 button:hover {
   background: rgba(0, 0, 0, 0.9);
 }
 
-#volume-slider {
-  display: flex;
-  align-items: center;
+#volume-control {
+  position: relative;
 }
 
-#volume-level {
-  margin-left: 10px;
+#volume-icon {
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  padding: 5px;
+}
+
+#volume-slider {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#volume-slider input {
+  background: gray;
+}
+
+#volume-control:hover #volume-slider,
+#volume-slider:hover {
+  display: block;
+}
+
+#volume-slider input {
+  vertical-align: middle;
+}
+
+/* Close Button Styles */
+#close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#close:hover {
+  background: rgba(0, 0, 0, 0.9);
 }
