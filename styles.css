@@ -1,43 +1,61 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* Ensure paragraphs are long enough */
+p {
+    font-size: 1.3em; /* 30% bigger than normal */
+    min-height: 400px; /* At least 400px tall */
+    line-height: 1.5; /* Improve readability */
+    margin: 0 0 20px 0; /* Add spacing between paragraphs */
+    text-align: justify; /* Justify text */
 }
 
+/* Header image styling */
 header img {
     width: 100%;
     height: auto;
 }
 
-main {
-    display: flex;
-    margin: 20px;
+/* Player container */
+#player-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 640px;
+    height: 360px;
+    display: none; /* Initially hidden */
 }
 
-.content {
-    flex: 3;
-    padding-right: 20px;
+/* Aside widget styling */
+aside {
+    float: right;
+    width: 300px;
+    margin-left: 20px;
 }
 
-.news-widget {
-    flex: 1;
-    border-left: 1px solid #ddd;
-    padding-left: 20px;
-}
-
-.video-player {
-    margin: 20px 0;
-}
-
-.news-item {
+.aside-elements {
     margin-bottom: 20px;
 }
 
-.news-item img {
+.aside-elements img {
     width: 100%;
     height: auto;
 }
 
-p {
-    text-align: justify;
+/* Clear floats */
+main::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    #player-container {
+        width: 100%;
+        height: auto;
+    }
+
+    aside {
+        width: 100%;
+        float: none;
+        margin: 20px 0;
+    }
 }
