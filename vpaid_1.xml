@@ -7,8 +7,28 @@
                 <Creative id="123456789" AdID="123456789-1" sequence="1">
                     <Linear>
                         <Duration>00:00:15</Duration>
+                        <TrackingEvents> </TrackingEvents>
+                        <VideoClicks>
+                            <!-- Removed ClickThrough URL -->
+                        </VideoClicks>
                         <MediaFiles>
+                            <!-- Different media files for various sizes -->
                             <MediaFile delivery="progressive" type="video/mp4" width="1920" height="1080" bitrate="16340911" scalable="false" maintainAspectRatio="false" fileSize="30639208">
+                                <![CDATA[ https://video.vidoomy.com/pro/ftp-pro/vast/39U87_1722595781_vast_video.mp4 ]]>
+                            </MediaFile>
+                            <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="8192000" scalable="false" maintainAspectRatio="false" fileSize="15360000">
+                                <![CDATA[ https://video.vidoomy.com/pro/ftp-pro/vast/39U87_1722595781_vast_video.mp4 ]]>
+                            </MediaFile>
+                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" bitrate="2048000" scalable="false" maintainAspectRatio="false" fileSize="3840000">
+                                <![CDATA[ https://video.vidoomy.com/pro/ftp-pro/vast/39U87_1722595781_vast_video.mp4 ]]>
+                            </MediaFile>
+                            <MediaFile delivery="progressive" type="video/mp4" width="400" height="225" bitrate="1024000" scalable="false" maintainAspectRatio="false" fileSize="1080000">
+                                <![CDATA[ https://video.vidoomy.com/pro/ftp-pro/vast/39U87_1722595781_vast_video.mp4 ]]>
+                            </MediaFile>
+                            <MediaFile delivery="progressive" type="video/mp4" width="320" height="180" bitrate="512000" scalable="false" maintainAspectRatio="false" fileSize="432000">
+                                <![CDATA[ https://video.vidoomy.com/pro/ftp-pro/vast/39U87_1722595781_vast_video.mp4 ]]>
+                            </MediaFile>
+                            <MediaFile delivery="progressive" type="video/mp4" width="256" height="144" bitrate="256000" scalable="false" maintainAspectRatio="false" fileSize="216000">
                                 <![CDATA[ https://video.vidoomy.com/pro/ftp-pro/vast/39U87_1722595781_vast_video.mp4 ]]>
                             </MediaFile>
                         </MediaFiles>
