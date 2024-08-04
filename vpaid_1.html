@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Page</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/7.20.2/video-js.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -13,44 +15,44 @@
 
     <main>
         <div class="content">
-            <div class="main-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel velit nec ipsum posuere ultricies. Maecenas vitae justo quis dolor condimentum varius non vel sapien.</p>
-                <p>Suspendisse potenti. Proin pharetra vehicula est, et pretium nunc fringilla vel. Etiam auctor venenatis urna, sit amet aliquet arcu pharetra eu. Aenean fermentum nunc sit amet ante euismod, sit amet interdum dui faucibus.</p>
-                <p>Donec convallis augue eu purus volutpat, nec tristique sem pretium. Duis imperdiet massa sed orci cursus, id dignissim neque tincidunt. Fusce pharetra neque vel justo posuere, ac venenatis ipsum sagittis.</p>
-                
-                <!-- Video Player -->
-                <div class="video-player">
-                    <div id="player-container">
-                        <div id="video-placeholder">Video Placeholder</div>
-                        <button id="play-button">Play</button>
-                        <button id="volume-button">Volume</button>
-                        <button id="close-button">Close</button>
-                    </div>
-                </div>
-                
-                <p>Integer vestibulum urna ac lorem rhoncus, in tincidunt mi efficitur. Sed sit amet tortor vel augue maximus consectetur. Aenean euismod, urna ut tincidunt lacinia, turpis quam lacinia felis, id accumsan ex lorem vel ligula.</p>
-                <p>Praesent efficitur tortor et ligula vehicula, sit amet sagittis dolor cursus. Ut non orci sit amet odio cursus convallis. Integer auctor mi nec dui vehicula, ac tristique ex bibendum.</p>
-                <p>Phasellus eget tortor ac justo gravida pharetra sed id lorem. Suspendisse ut ipsum sit amet ligula auctor fermentum. Duis sed ligula euismod, lacinia purus id, vehicula ex.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel velit nec ipsum posuere ultricies...</p>
+            <p>Suspendisse potenti. Proin pharetra vehicula est, et pretium nunc fringilla vel...</p>
+            <p>Donec convallis augue eu purus volutpat, nec tristique sem pretium...</p>
+            
+            <!-- Video Player -->
+            <div class="video-player">
+                <video id="my-video" class="video-js vjs-default-skin" controls preload="auto">
+                    <source src="" type="video/mp4">
+                </video>
             </div>
             
-            <aside class="news-widget">
-                <h2>Recent News</h2>
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/150x100?text=News+1" alt="News 1">
-                    <p>News item 1 description. Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/150x100?text=News+2" alt="News 2">
-                    <p>News item 2 description. Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/150x100?text=News+3" alt="News 3">
-                    <p>News item 3 description. Lorem ipsum dolor sit amet.</p>
-                </div>
-            </aside>
+            <p>Integer vestibulum urna ac lorem rhoncus...</p>
+            <p>Praesent efficitur tortor et ligula vehicula...</p>
+            <p>Phasellus eget tortor ac justo gravida pharetra...</p>
         </div>
+        
+        <aside class="news-widget">
+            <h2>Recent News</h2>
+            <div class="news-item">
+                <img src="https://via.placeholder.com/150x100?text=News+1" alt="News 1">
+                <p>News item 1 description...</p>
+            </div>
+            <div class="news-item">
+                <img src="https://via.placeholder.com/150x100?text=News+2" alt="News 2">
+                <p>News item 2 description...</p>
+            </div>
+            <div class="news-item">
+                <img src="https://via.placeholder.com/150x100?text=News+3" alt="News 3">
+                <p>News item 3 description...</p>
+            </div>
+        </aside>
     </main>
     
+    <!-- Video.js Library -->
+    <script src="https://vjs.zencdn.net/7.20.2/video.min.js"></script>
+    <!-- Video.js Contrib Ads Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@7.2.0/dist/videojs-contrib-ads.min.js"></script>
+    <!-- Player Initialization Script -->
     <script src="player.js"></script>
 </body>
 </html>
