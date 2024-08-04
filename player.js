@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
   volumeInput.value = '100';
   volumeSlider.appendChild(volumeInput);
   volumeControl.appendChild(volumeSlider);
-  controls.appendChild(volumeControl);
+  container.appendChild(volumeControl);
 
   // Append the container to the placeholder
   placeholder.appendChild(container);
