@@ -8,9 +8,6 @@
                     <Linear>
                         <Duration>00:00:15</Duration>
                         <TrackingEvents> </TrackingEvents>
-                        <VideoClicks>
-                            <!-- Removed ClickThrough URL -->
-                        </VideoClicks>
                         <MediaFiles>
                             <!-- Different media files for various sizes -->
                             <MediaFile delivery="progressive" type="video/mp4" width="1920" height="1080" bitrate="16340911" scalable="false" maintainAspectRatio="false" fileSize="30639208">
