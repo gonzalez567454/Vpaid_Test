@@ -7,7 +7,6 @@
                 <Creative id="123456789" AdID="123456789-1" sequence="1">
                     <Linear>
                         <Duration>00:00:15</Duration>
-                        <TrackingEvents> </TrackingEvents>
                         <MediaFiles>
                             <!-- Different media files for various sizes -->
                             <MediaFile delivery="progressive" type="video/mp4" width="1920" height="1080" bitrate="16340911" scalable="false" maintainAspectRatio="false" fileSize="30639208">
